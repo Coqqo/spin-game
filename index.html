@@ -2,39 +2,70 @@
 <html>
 <head>
   <title>Spin Game</title>
+
+  <!-- RESPONSIVE (très important) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background: #292929;
       color: white;
       text-align: center;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
     }
+
+    /* CONTAINER CENTRÉ */
+    .container {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Sekuya', sans-serif;
+      font-size: 30px;
+      color: #FF4040;
+      letter-spacing: 2px;
+    }
+
     button {
       background: #FF4040;
       color: white;
       border: none;
-      padding: 15px 30px;
-      margin: 10px;
+      padding: 15px;
+      margin: 10px 0;
       font-size: 18px;
       cursor: pointer;
       border-radius: 15px;
+      width: 100%;
+      max-width: 250px;
     }
-    h1 {
-  font-family: 'Sekuya', sans-serif;
-  font-size: 50px;
-  color: #FF4040;
-  letter-spacing: 2px;
-}
+
+    button:hover {
+      background: #ff1a1a;
+    }
   </style>
 </head>
+
 <body>
 
-<h1>🥵 Spin Game 🥵</h1>
+<div class="container">
 
-<button onclick="goTo('lieu.html')">Lieu</button>
-<button onclick="goTo('action.html')">Action</button>
-<button onclick="goTo('position.html')">Position</button>
+  <h1>🥵 Spin Game 🥵</h1>
+
+  <button onclick="goTo('lieu.html')">Lieu</button>
+  <button onclick="goTo('action.html')">Action</button>
+  <button onclick="goTo('position.html')">Position</button>
+
+</div>
 
 <script>
 function goTo(page) {
