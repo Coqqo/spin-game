@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Action</title>
+   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+  <style>
+    body { background: #292929; color: white; text-align: center; font-family: Arial, sans-serif; }
+    button { background: #FF4040; color: white; padding: 15px 30px; border: none; font-size: 18px; border-radius: 15px; }
+     h1 {
+  font-family: 'Sekuya', sans-serif;
+  font-size: 50px;
+  color: #FF4040;
+  letter-spacing: 2px;
+}
+    #result { font-size: 30px; margin: 30px; color: #FF4040; }
+  </style>
+</head>
+<body>
+
+<h1>🔥 Action</h1>
+<div id="result">Clique pour jouer</div>
+<button onclick="spin()">Lancer</button>
+
+<script>
+const items = [
+  "Bisous dans le cou",
+  "Bisous sur le corps",
+  "Smack",
+  "Galoche",
+  "Léchage d’oreille",
+  "Léchage de lèvres",
+  "Bisou passionné",
+  "Caressage du corps",
+  "Léchage de téton",
+  "Serrer les seins",
+  "Main entre les jambes",
+  "Caresser entre les jambes",
+  "Tirage de cheveux",
+  "Léchage entre les jambes",
+  "Mordre le corps",
+  "Prendre le contrôle pendant 20s"
+];
+
+function spin() {
+  let count = 0;
+
+  const interval = setInterval(() => {
+    const random = Math.floor(Math.random() * items.length);
+    document.getElementById("result").innerText = items[random];
+    count++;
+
+    if (count > 10) clearInterval(interval);
+  }, 100);
+}
+</script>
+
+</body>
+</html>

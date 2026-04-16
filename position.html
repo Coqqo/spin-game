@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Position</title>
+   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+  <style>
+    body { background: #292929; color: white; text-align: center; font-family: Arial, sans-serif; }
+    button { background: #FF4040; color: white; padding: 15px 30px; border: none; font-size: 18px; border-radius: 15px; }
+     h1 {
+  font-family: 'Sekuya', sans-serif;
+  font-size: 50px;
+  color: #FF4040;
+  letter-spacing: 2px;
+}
+    #result { font-size: 30px; margin: 30px; color: #FF4040; }
+  </style>
+</head>
+<body>
+
+<h1>💘 Position</h1>
+<div id="result">Clique pour jouer</div>
+<button onclick="spin()">Lancer</button>
+
+<script>
+const items = [
+  "Levrette",
+  "69",
+  "Le bateau ivre",
+  "La chaise longue",
+  "Le compas",
+  "Le néophyte",
+  "Le tendre amant",
+  "La chaise à bascule",
+  "Les petites cuillères",
+  "Missionnaire",
+  "Celui qui reste à la maison",
+  "L’andromaque",
+  "L’union des lotus",
+  "Le cerf en rut",
+  "Le cheval renversé",
+  "La berceuse"
+];
+
+function spin() {
+  let count = 0;
+
+  const interval = setInterval(() => {
+    const random = Math.floor(Math.random() * items.length);
+    document.getElementById("result").innerText = items[random];
+    count++;
+
+    if (count > 10) clearInterval(interval);
+  }, 100);
+}
+</script>
+
+</body>
+</html>

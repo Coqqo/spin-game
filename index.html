@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spin Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #292929;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      background: #FF4040;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 15px;
+    }
+    h1 {
+  font-family: 'Sekuya', sans-serif;
+  font-size: 50px;
+  color: #FF4040;
+  letter-spacing: 2px;
+}
+  </style>
+</head>
+<body>
+
+<h1>🥵 Spin Game 🥵</h1>
+
+<button onclick="goTo('lieu.html')">Lieu</button>
+<button onclick="goTo('action.html')">Action</button>
+<button onclick="goTo('position.html')">Position</button>
+
+<script>
+function goTo(page) {
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>
