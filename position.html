@@ -3,10 +3,7 @@
 <head>
   <title>Position</title>
 
-  <!-- RESPONSIVE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
 
   <style>
@@ -15,38 +12,46 @@
     }
 
     body {
-  background: #292929;
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+      background: #292929;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
 
-  display: flex;
-  justify-content: center;
-}
-
-    /* CONTAINER CENTRÉ */
     .container {
-  max-width: 300px;
-  width: 100%;
-  text-align: center;
-}
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
     h1 {
       font-family: 'Sekuya', sans-serif;
-      font-size: 25px;
+      font-size: 28px;
       color: #FF4040;
       letter-spacing: 2px;
+      margin-bottom: 25px;
     }
 
     #result {
-      font-size: 26px;
-      margin: 30px 0;
+      font-size: 24px;
+      margin: 25px 0 15px;
       color: white;
-      min-height: 40px;
+      min-height: 34px;
     }
 
     .result-active {
       color: #FF4040;
+    }
+
+    #result-image {
+      display: none;
+      width: 100%;
+      max-width: 220px;
+      margin: 10px auto 25px;
+      border-radius: 15px;
+      object-fit: cover;
     }
 
     button {
@@ -58,7 +63,9 @@
       border-radius: 15px;
       cursor: pointer;
       width: 100%;
-      max-width: 250px;
+      max-width: 220px;
+      display: block;
+      margin: 0 auto;
     }
 
     button:hover {
@@ -69,53 +76,61 @@
 
 <body>
 
-<div class="container">
+  <div class="container">
+    <h1>💘 Position</h1>
 
-  <h1>💘 Position</h1>
+    <div id="result">Clique pour jouer</div>
+    <img id="result-image" src="" alt="Position">
 
-  <div id="result">Clique pour jouer</div>
+    <button onclick="spin()">Lancer</button>
+  </div>
 
-  <button onclick="spin()">Lancer</button>
+  <script>
+    const items = [
+      { name: "Levrette", image: "images/levrette.png" },
+      { name: "69", image: "images/69.png" },
+      { name: "Le bateau ivre", image: "images/le-bateau-ivre.png" },
+      { name: "La chaise longue", image: "images/chaise-longue.png" },
+      { name: "Le compas", image: "images/compas.png" },
+      { name: "Le néophyte", image: "images/neophyte.png" },
+      { name: "Le tendre amant", image: "images/tendre-amant.png" },
+      { name: "La chaise à bascule", image: "images/chaise-a-bascule.png" },
+      { name: "Les petites cuillères", image: "images/petites-cuilleres.png" },
+      { name: "Missionnaire", image: "images/missionnaire.png" },
+      { name: "Celui qui reste à la maison", image: "images/celui-qui-reste-a-la-maison.png" },
+      { name: "L’andromaque", image: "images/andromaque.png" },
+      { name: "L’union des lotus", image: "images/union-des-lotus.png" },
+      { name: "Le cerf en rut", image: "images/cerf-en-rut.png" },
+      { name: "Le cheval renversé", image: "images/cheval-renverse.png" },
+      { name: "La berceuse", image: "images/berceuse.png" }
+    ];
 
-</div>
+    function spin() {
+      const resultDiv = document.getElementById("result");
+      const resultImage = document.getElementById("result-image");
 
-<script>
-const items = [
-  "Levrette",
-  "69",
-  "Le bateau ivre",
-  "La chaise longue",
-  "Le compas",
-  "Le néophyte",
-  "Le tendre amant",
-  "La chaise à bascule",
-  "Les petites cuillères",
-  "Missionnaire",
-  "Celui qui reste à la maison",
-  "L’andromaque",
-  "L’union des lotus",
-  "Le cerf en rut",
-  "Le cheval renversé",
-  "La berceuse"
-];
+      resultDiv.classList.add("result-active");
+      resultImage.style.display = "none";
 
-function spin() {
-  let resultDiv = document.getElementById("result");
+      let count = 0;
 
-  // Passe en rouge après clic
-  resultDiv.classList.add("result-active");
+      const interval = setInterval(() => {
+        const random = Math.floor(Math.random() * items.length);
+        resultDiv.innerText = items[random].name;
+        count++;
 
-  let count = 0;
+        if (count > 15) {
+          clearInterval(interval);
 
-  const interval = setInterval(() => {
-    const random = Math.floor(Math.random() * items.length);
-    resultDiv.innerText = items[random];
-    count++;
-
-    if (count > 15) clearInterval(interval);
-  }, 100);
-}
-</script>
+          const finalRandom = Math.floor(Math.random() * items.length);
+          resultDiv.innerText = items[finalRandom].name;
+          resultImage.src = items[finalRandom].image;
+          resultImage.alt = items[finalRandom].name;
+          resultImage.style.display = "block";
+        }
+      }, 100);
+    }
+  </script>
 
 </body>
 </html>
