@@ -2,24 +2,79 @@
 <html>
 <head>
   <title>Action</title>
-   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+
+  <!-- RESPONSIVE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+
   <style>
-    body { background: #292929; color: white; text-align: center; font-family: Arial, sans-serif; }
-    button { background: #FF4040; color: white; padding: 15px 30px; border: none; font-size: 18px; border-radius: 15px; }
-     h1 {
-  font-family: 'Sekuya', sans-serif;
-  font-size: 50px;
-  color: #FF4040;
-  letter-spacing: 2px;
-}
-    #result { font-size: 30px; margin: 30px; color: #FF4040; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #292929;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Sekuya', sans-serif;
+      font-size: 30px;
+      color: #FF4040;
+      letter-spacing: 2px;
+    }
+
+    #result {
+      font-size: 26px;
+      margin: 30px 0;
+      color: white;
+      min-height: 40px;
+    }
+
+    .result-active {
+      color: #FF4040;
+    }
+
+    button {
+      background: #FF4040;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 15px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 250px;
+    }
+
+    button:hover {
+      background: #ff1a1a;
+    }
   </style>
 </head>
+
 <body>
 
-<h1>🔥 Action</h1>
-<div id="result">Clique pour jouer</div>
-<button onclick="spin()">Lancer</button>
+<div class="container">
+
+  <h1>🔥 Action</h1>
+
+  <div id="result">Clique pour jouer</div>
+
+  <button onclick="spin()">Lancer</button>
+
+</div>
 
 <script>
 const items = [
@@ -42,14 +97,19 @@ const items = [
 ];
 
 function spin() {
+  let resultDiv = document.getElementById("result");
+
+  // Passe en rouge après clic
+  resultDiv.classList.add("result-active");
+
   let count = 0;
 
   const interval = setInterval(() => {
     const random = Math.floor(Math.random() * items.length);
-    document.getElementById("result").innerText = items[random];
+    resultDiv.innerText = items[random];
     count++;
 
-    if (count > 10) clearInterval(interval);
+    if (count > 15) clearInterval(interval);
   }, 100);
 }
 </script>
