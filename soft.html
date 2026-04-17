@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soft</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #292929;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 320px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Sekuya', sans-serif;
+      font-size: 28px;
+      color: #6BCB77; /* couleur différente pour soft */
+      letter-spacing: 2px;
+    }
+
+    #result {
+      font-size: 24px;
+      margin: 25px 0;
+      min-height: 34px;
+    }
+
+    .result-active {
+      color: white;
+    }
+
+    button {
+      background: #6BCB77;
+      color: black;
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 15px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 220px;
+      margin: auto;
+      display: block;
+    }
+
+    button:hover {
+      background: #8ee39d;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🌿 Soft</h1>
+
+  <div id="result">Clique pour jouer</div>
+
+  <button onclick="spin()">Lancer</button>
+
+</div>
+
+<script>
+const items = [
+  "Bisous dans le cou",
+  "Bisous sur le corps",
+  "Smack",
+  "Galoche",
+  "Léchage d’oreille",
+  "Léchage de lèvres",
+  "Bisou passionné",
+  "Caressage du corps",
+  "Serrer les seins",
+  "Tirage de cheveux",
+  "Mordre le corps",
+  "Câlin",
+  "Faire la bise",
+  "Lécher les lèvres",
+  "Enlever un vêtement",
+  "Léchage de langue",
+  "Caresser les seins",
+  "Massage",
+  "Flash seins",
+  "Gifle avec les seins",
+  "Biflette"
+];
+
+function spin() {
+  let resultDiv = document.getElementById("result");
+
+  resultDiv.classList.add("result-active");
+
+  let count = 0;
+
+  const interval = setInterval(() => {
+    const random = Math.floor(Math.random() * items.length);
+    resultDiv.innerText = items[random];
+    count++;
+
+    if (count > 15) clearInterval(interval);
+  }, 100);
+}
+</script>
+
+</body>
+</html>
