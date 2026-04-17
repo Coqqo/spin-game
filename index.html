@@ -3,10 +3,7 @@
 <head>
   <title>Spin Game</title>
 
-  <!-- RESPONSIVE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
 
   <style>
@@ -14,47 +11,79 @@
       box-sizing: border-box;
     }
 
-     body {
-  background: #292929;
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+    body {
+      background: #292929;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
 
-  display: flex;
-  justify-content: center;
-}
-
-    /* CONTAINER CENTRÉ */
     .container {
-  max-width: 300px;
-  width: 100%;
-  text-align: center;
-}
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
 
     h1 {
       font-family: 'Sekuya', sans-serif;
-      font-size: 20px;
+      font-size: 30px;
       color: #FF4040;
       letter-spacing: 2px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-      button {
-      background: #FF4040;
-      color: white;
+    /* STYLE DE BASE */
+    button {
       border: none;
       padding: 15px;
       margin: 10px 0;
       font-size: 18px;
-      border-radius: 15px;
       cursor: pointer;
+      border-radius: 15px;
       width: 100%;
       max-width: 250px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.2s;
     }
 
+    /* LIEU */
+    .btn-lieu {
+      background: #FFDC3B;
+      color: black;
+    }
+
+    .btn-lieu:hover {
+      background: #ffe880;
+    }
+
+    /* ACTION */
+    .btn-action {
+      background: #FF8524;
+      color: black;
+    }
+
+    .btn-action:hover {
+      background: #ffba81;
+    }
+
+    /* POSITION */
+    .btn-position {
+      background: #FF4040;
+      color: black;
+    }
+
+    .btn-position:hover {
+      background: #ff6464;
+    }
+
+    /* PETIT EFFET */
     button:hover {
-      background: #ff1a1a;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -65,9 +94,9 @@
 
   <h1>🥵 Spin Game 🥵</h1>
 
-  <button onclick="goTo('lieu.html')">Lieu</button>
-  <button onclick="goTo('action.html')">Action</button>
-  <button onclick="goTo('position.html')">Position</button>
+  <button class="btn-lieu" onclick="goTo('lieu.html')">Lieu</button>
+  <button class="btn-action" onclick="goTo('action.html')">Action</button>
+  <button class="btn-position" onclick="goTo('position.html')">Position</button>
 
 </div>
 
